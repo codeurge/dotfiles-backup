@@ -1,0 +1,173 @@
+" Initial Settings
+" ===========================================================
+  set noswapfile      " Live dangerous, no swapfiles
+  set nocompatible    " Just say no to plain vi
+  set shell=/bin/zsh    " Zsh.
+  set encoding=utf-8    " UTF-8 encoding
+  filetype on
+  filetype plugin indent on " load file type plugins and indentation
+  syntax enable			" Enable syntax highlighting
+  set background=dark		" Dark background
+  set t_Co=16			" 256 Terminal Colors
+  colorscheme wombat256i
+  set clipboard=unnamed " Use the OS X clipboard
+  set ruler				" show the cursor position all the time
+  set noshowcmd			" don't display incomplete commands
+  set lazyredraw		" use lazyredraw
+  set nu              " turn on line number
+  set wildmenu			" turn on wild menu
+  set wildmode=list:longest,full
+  set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.class,.svn,*.gem " what files to ignore when doing filename completion, etc.
+  set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz " Disable archive files
+  set wildignore+=vendor/gems/*,vendor/cache/*,.bundle/*,.sass-cache/* " Ignore bundler and sass cache
+  set wildignore+=*.swp,*~,._* " Disable temp and backup files
+  set ch=1				" command line height
+  set backspace=2 		" allow backspacing over everything in insert mode
+  set report=0			" tell us about changes
+  set nostartofline		" don't just to start of line when scrolling
+  set autoread			" don't prompt if buffers have been saved prior to external modification.
+  set splitbelow    " open splits below current pane
+  set splitright    " open vertical splits to right of current pane
+
+  let g:airline_powerline_fonts = 1
+  let g:airline_theme = 'wombat'
+
+  " Different cursors for different modes.
+  set guicursor=n-c:block-Cursor-blinkon0
+  set guicursor+=v:block-vCursor-blinkon0
+  set guicursor+=i-ci:ver20-iCursor
+
+" Vundle Plugins
+" ===========================================================
+  set rtp+=~/.vim/bundle/Vundle.vim
+
+  call vundle#begin()
+  Plugin 'gmarik/Vundle.vim'
+  Plugin 'Valloric/YouCompleteMe'
+  Plugin 'scrooloose/nerdtree'
+  Plugin 'christoomey/vim-tmux-navigator'
+  Plugin 'nathanaelkane/vim-indent-guides'
+  Plugin 'ntpeters/vim-better-whitespace'
+  Plugin 'Lokaltog/vim-easymotion'
+  Plugin 'airblade/vim-gitgutter'
+  Plugin 'digitaltoad/vim-jade'
+  Plugin 'slim-template/vim-slim'
+  Plugin 'kchmck/vim-coffee-script'
+  call vundle#end()
+
+"	Text Formatting
+" ===========================================================
+  set autoindent			" automatic indent new lines
+  set smartindent			" be smart about it
+  set nowrap				" do not wrap lines
+  set tabstop=2 			" set tab equivilant to 4 spaces
+  set shiftwidth=2 		" ..
+  set softtabstop=2   " soft tabs
+  set expandtab
+  set formatoptions+=n	" support for numbered lines/bullet lists
+  set virtualedit=block	" allow virtual edit in visual block
+
+"	Visual Cues
+" ===========================================================
+  set showmatch			" brackets/braces that is
+  set mat=5				" duration to show matching brace (1/10 sec)
+  set incsearch			" find as you type
+  set laststatus=2		" always show the status line
+  set ignorecase			" ignore case when searching
+  set nohlsearch			" don't highlight searches
+  set visualbell			" shut the fuck up
+
+"	Remapping
+" ===========================================================
+  let mapleader = "," 	" lead with ,
+  let mapleader = "\<Space>"
+  inoremap jj <ESC> 		" exit to normal mode with 'jj'
+
+  " reflow paragraph with Q in normal and visual mode
+  nnoremap Q gqap
+  vnoremap Q gq
+
+  " sane movement with wrap turned on
+  nnoremap j gj
+  nnoremap k gk
+  vnoremap j gj
+  vnoremap k gk
+  nnoremap <Down> gj
+  nnoremap <Up> gk
+  vnoremap <Down> gj
+  vnoremap <Up> gk
+  inoremap <Down> <C-o>gj
+  inoremap <Up> <C-o>gk
+
+  imap ,t <Esc>:tabnew<CR>
+  nnoremap th  :tabfirst<CR>
+  nnoremap tk  :tabnext<CR>
+  nnoremap tj  :tabprev<CR>
+  nnoremap tl  :tablast<CR>
+  nnoremap tt  :tabedit<Space>
+  nnoremap tn  :tabnew<CR>
+  nnoremap tm  :tabm<Space>
+  nnoremap td  :tabclose<CR>
+
+  nmap <leader>h :nohlsearch<cr>
+
+  " split remapping
+  nnoremap <C-J> <C-W><C-J>
+  nnoremap <C-K> <C-W><C-K>
+  nnoremap <C-L> <C-W><C-L>
+  nnoremap <C-H> <C-W><C-H>
+
+"	Strip all trailing whitespace in file
+" ===========================================================
+  let g:better_whitespace_filetypes_blacklist=['unite']
+
+"	NERDTree
+" ===========================================================
+  let g:NERDTreeWinSize = 40
+  let NERDTreeShowHidden=1
+  let NERDTreeQuitOnOpen=1
+  map <Leader>n :NERDTreeTabsToggle<CR>
+  map <Leader>sw :StripWhitespace<CR>
+  map <Leader>w :w<CR>
+  map <Leader>wq :wq<CR>
+
+" EasyMotion
+" ===========================================================
+  map  / <Plug>(easymotion-sn)
+  omap / <Plug>(easymotion-tn)
+  nmap s <Plug>(easymotion-s)
+  let g:EasyMotion_smartcase = 1
+  map <Leader>j <Plug>(easymotion-j)
+  map <Leader>k <Plug>(easymotion-k)
+  map <Leader> <Plug>(easymotion-prefix)
+
+" Vim Tmux Navigation
+" ===========================================================
+  if exists('$TMUX')
+    function! TmuxOrSplitSwitch(wincmd, tmuxdir)
+      let previous_winnr = winnr()
+      silent! execute "wincmd " . a:wincmd
+      if previous_winnr == winnr()
+        call system("tmux select-pane -" . a:tmuxdir)
+        redraw!
+      endif
+    endfunction
+
+    let previous_title = substitute(system("tmux display-message -p '#{pane_title}'"), '\n', '', '')
+    let &t_ti = "\<Esc>]2;vim\<Esc>\\" . &t_ti
+    let &t_te = "\<Esc>]2;". previous_title . "\<Esc>\\" . &t_te
+
+    nnoremap <silent> <C-h> :call TmuxOrSplitSwitch('h', 'L')<cr>
+    nnoremap <silent> <C-j> :call TmuxOrSplitSwitch('j', 'D')<cr>
+    nnoremap <silent> <C-k> :call TmuxOrSplitSwitch('k', 'U')<cr>
+    nnoremap <silent> <C-l> :call TmuxOrSplitSwitch('l', 'R')<cr>
+  else
+    map <C-h> <C-w>h
+    map <C-j> <C-w>j
+    map <C-k> <C-w>k
+    map <C-l> <C-w>l
+  endif
+
+" HAMLC Support
+" ===========================================================
+au BufRead,BufNewFile *.hamlc set ft=haml " Add Syntax support for HAMLC
