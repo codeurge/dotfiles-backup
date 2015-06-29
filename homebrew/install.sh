@@ -13,6 +13,6 @@ then
 fi
 
 # Install homebrew packages
-brew install coreutils caskroom/cask/brew-cask
+brew install coreutils git caskroom/cask/brew-cask
 
 exit 0

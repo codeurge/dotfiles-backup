@@ -45,6 +45,7 @@
   Plugin 'gmarik/Vundle.vim'
   Plugin 'Valloric/YouCompleteMe'
   Plugin 'scrooloose/nerdtree'
+  Plugin 'jistr/vim-nerdtree-tabs'
   Plugin 'christoomey/vim-tmux-navigator'
   Plugin 'nathanaelkane/vim-indent-guides'
   Plugin 'ntpeters/vim-better-whitespace'
@@ -53,6 +54,8 @@
   Plugin 'digitaltoad/vim-jade'
   Plugin 'slim-template/vim-slim'
   Plugin 'kchmck/vim-coffee-script'
+  Plugin 'kien/ctrlp.vim'
+  Plugin 'bling/vim-airline'
   call vundle#end()
 
 "	Text Formatting
