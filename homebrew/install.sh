@@ -13,6 +13,7 @@ then
 fi
 
 # Install homebrew packages
-brew install coreutils git caskroom/cask/brew-cask
+brew install coreutils git caskroom/cask/brew-cask zsh tmux vim cmake\
+  reattach-to-user-namespace qt tig weechat htop ncmpcpp the_silver_searcher\
 
 exit 0
