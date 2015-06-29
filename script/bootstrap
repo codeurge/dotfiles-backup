@@ -27,7 +27,7 @@ fail () {
   exit
 }
 
-echo 'First things first, let\'s install homebrew.'
+echo 'First things first, let us install homebrew.'
 
 if [ "$(uname -s)" == "Darwin" ]
 then
