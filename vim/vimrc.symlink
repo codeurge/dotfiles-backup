@@ -9,7 +9,7 @@
   syntax enable			" Enable syntax highlighting
   set background=dark		" Dark background
   set t_Co=16			" 256 Terminal Colors
-  colorscheme wombat256i
+  colorscheme dracula
   set clipboard=unnamed " Use the OS X clipboard
   set ruler				" show the cursor position all the time
   set noshowcmd			" don't display incomplete commands
@@ -56,6 +56,7 @@
   Plugin 'kchmck/vim-coffee-script'
   Plugin 'kien/ctrlp.vim'
   Plugin 'bling/vim-airline'
+  Plugin 'edkolev/tmuxline.vim'
   call vundle#end()
 
 "	Text Formatting
