@@ -5,8 +5,6 @@
   set shell=/bin/sh    " Zsh.
   set encoding=utf-8    " UTF-8 encoding
   filetype on
-  filetype plugin indent on " load file type plugins and indentation
-  syntax enable			" Enable syntax highlighting
   set background=dark		" Dark background
   set t_Co=16			" 256 Terminal Colors
   colorscheme dracula
@@ -61,10 +59,14 @@
   Plugin 'tpope/vim-rails'
   Plugin 'skalnik/vim-vroom'
   Plugin 'benmills/vimux'
+  Plugin 'xolox/vim-misc'
+  Plugin 'xolox/vim-notes'
   call vundle#end()
+  filetype plugin indent on " load file type plugins and indentation
 
 "	Text Formatting
 " ===========================================================
+  syntax enable			" Enable syntax highlighting
   set autoindent			" automatic indent new lines
   set smartindent			" be smart about it
   set nowrap				" do not wrap lines
@@ -205,3 +207,5 @@ nnoremap <Leader>c :set cursorline!<CR>
 set cursorline!
 
 let g:vroom_use_vimux = 1
+
+autocmd BufNewFile,BufRead *.slim set ft=slim
