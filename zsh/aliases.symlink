@@ -1,0 +1,8 @@
+alias ga='git add'
+alias gst='git status'
+alias gco='git checkout'
+alias gl='git pull'
+alias gp='git push'
+alias grm='git rebase master'
+alias grc='git rebase continue'
+alias vi='vim'

@@ -2,7 +2,7 @@
 " ===========================================================
   set noswapfile      " Live dangerous, no swapfiles
   set nocompatible    " Just say no to plain vi
-  set shell=/bin/zsh    " Zsh.
+  set shell=/bin/sh    " Zsh.
   set encoding=utf-8    " UTF-8 encoding
   filetype on
   filetype plugin indent on " load file type plugins and indentation
@@ -57,6 +57,10 @@
   Plugin 'kien/ctrlp.vim'
   Plugin 'bling/vim-airline'
   Plugin 'edkolev/tmuxline.vim'
+  Plugin 'rking/ag.vim'
+  Plugin 'tpope/vim-rails'
+  Plugin 'skalnik/vim-vroom'
+  Plugin 'benmills/vimux'
   call vundle#end()
 
 "	Text Formatting
@@ -84,7 +88,6 @@
 "	Remapping
 " ===========================================================
   let mapleader = "," 	" lead with ,
-  let mapleader = "\<Space>"
   inoremap jj <ESC> 		" exit to normal mode with 'jj'
 
   " reflow paragraph with Q in normal and visual mode
@@ -103,7 +106,6 @@
   inoremap <Down> <C-o>gj
   inoremap <Up> <C-o>gk
 
-  imap ,t <Esc>:tabnew<CR>
   nnoremap th  :tabfirst<CR>
   nnoremap tk  :tabnext<CR>
   nnoremap tj  :tabprev<CR>
@@ -175,3 +177,31 @@
 " HAMLC Support
 " ===========================================================
 au BufRead,BufNewFile *.hamlc set ft=haml " Add Syntax support for HAMLC
+
+" AG
+" ===========================================================
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+  nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+  nnoremap \ :Ag<SPACE>
+
+" Indent Guides
+" ===========================================================
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=59
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=103
+hi CursorLine   cterm=bold ctermbg=darkgray
+nnoremap <Leader>c :set cursorline!<CR>
+set cursorline!
+
+let g:vroom_use_vimux = 1
