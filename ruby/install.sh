@@ -3,5 +3,5 @@
 if test ! $(which rvm)
 then
   echo "  Installing rvm for you."
-  brew install rvm > /tmp/rvm-install.log
+  curl -sSL https://get.rvm.io | bash -s stable
 fi
