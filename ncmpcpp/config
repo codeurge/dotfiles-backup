@@ -1,0 +1,28 @@
+user_interface = alternative
+statusbar_visibility = no
+progressbar_look = "─╼ "
+ignore_leading_the = "yes"
+display_bitrate = yes
+empty_tag_color = "white"
+header_window_color = "white"
+volume_color = "white"
+state_line_color = "blue"
+state_flags_color = "blue"
+main_window_color = "blue"
+color1 = "white"
+color2 = "green"
+
+colors_enabled = yes
+main_window_highlight_color = "white"
+progressbar_color = "blue"
+statusbar_color = "white"
+active_column_color = "white"
+window_border_color = "white"
+active_window_border = "magenta"
+display_remaining_time = "yes"
+now_playing_prefix = "$4$b»"
+now_playing_suffix = "$/b"
+
+song_columns_list_format = "(40)[green]{t|f} (25)[yellow]{a} (30)[cyan]{b} (30)[red]{y} (6f)[blue]{l}"
+
+autocenter_mode = "yes"

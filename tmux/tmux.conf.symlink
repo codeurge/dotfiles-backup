@@ -6,6 +6,7 @@ set-option -g default-shell $SHELL
 set-option -g history-limit 90000
 set-option -g repeat-time 0 # turn off repetitive commands
 setw -g mode-mouse off # Hardcore!!
+setw -g mode-keys vi
 
 # Keybindings
 set-option -g prefix C-a # Change tmux prefix to Ctrl-a

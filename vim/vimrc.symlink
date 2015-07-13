@@ -7,7 +7,7 @@
   filetype on
   set background=dark		" Dark background
   set t_Co=16			" 256 Terminal Colors
-  colorscheme dracula
+  colorscheme Dracula
   set clipboard=unnamed " Use the OS X clipboard
   set ruler				" show the cursor position all the time
   set noshowcmd			" don't display incomplete commands
@@ -28,7 +28,7 @@
   set splitright    " open vertical splits to right of current pane
 
   let g:airline_powerline_fonts = 1
-  let g:airline_theme = 'wombat'
+  let g:airline_theme = 'lucius'
 
   " Different cursors for different modes.
   set guicursor=n-c:block-Cursor-blinkon0
@@ -41,7 +41,6 @@
 
   call vundle#begin()
   Plugin 'gmarik/Vundle.vim'
-  Plugin 'Valloric/YouCompleteMe'
   Plugin 'scrooloose/nerdtree'
   Plugin 'jistr/vim-nerdtree-tabs'
   Plugin 'christoomey/vim-tmux-navigator'
@@ -52,6 +51,7 @@
   Plugin 'digitaltoad/vim-jade'
   Plugin 'slim-template/vim-slim'
   Plugin 'kchmck/vim-coffee-script'
+  Plugin 'fatih/vim-go'
   Plugin 'kien/ctrlp.vim'
   Plugin 'bling/vim-airline'
   Plugin 'edkolev/tmuxline.vim'

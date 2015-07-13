@@ -1,0 +1,26 @@
+def_key "j"
+ scroll_down
+
+def_key "k"
+ scroll_up
+
+def_key "n"
+  next
+
+def_key "p"
+  previous
+
+def_key "P"
+  pause
+
+def_key "s"
+  toggle_random
+
+def_key "h"
+  previous_column
+
+def_key "l"
+  next_column
+
+def_key "L"
+  show_lyrics
