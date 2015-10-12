@@ -7,7 +7,6 @@
   filetype on
   set background=dark		" Dark background
   set t_Co=16			" 256 Terminal Colors
-  colorscheme Dracula
   set clipboard=unnamed " Use the OS X clipboard
   set ruler				" show the cursor position all the time
   set noshowcmd			" don't display incomplete commands
@@ -61,8 +60,10 @@
   Plugin 'benmills/vimux'
   Plugin 'xolox/vim-misc'
   Plugin 'xolox/vim-notes'
+  Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
   call vundle#end()
   filetype plugin indent on " load file type plugins and indentation
+  color Dracula
 
 "	Text Formatting
 " ===========================================================
