@@ -5,7 +5,7 @@
   set shell=/bin/sh    " Zsh.
   set encoding=utf-8    " UTF-8 encoding
   filetype on
-  set background=dark		" Dark background
+  set background=light " Dark background
   set t_Co=16			" 256 Terminal Colors
   set clipboard=unnamed " Use the OS X clipboard
   set ruler				" show the cursor position all the time
@@ -60,7 +60,13 @@
   Plugin 'benmills/vimux'
   Plugin 'xolox/vim-misc'
   Plugin 'xolox/vim-notes'
+  Plugin 'tpope/vim-fugitive'
   Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
+  Plugin 'isRuslan/vim-es6'
+  Plugin 'mxw/vim-jsx'
+  Plugin 'tpope/vim-haml'
+  Plugin 'cakebaker/scss-syntax.vim'
+  Plugin 'tpope/vim-cucumber'
   call vundle#end()
   filetype plugin indent on " load file type plugins and indentation
   color Dracula
