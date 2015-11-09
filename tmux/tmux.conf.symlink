@@ -5,7 +5,7 @@ set-option -g default-shell /usr/local/bin/zsh
 set-option -g default-shell $SHELL
 set-option -g history-limit 90000
 set-option -g repeat-time 0 # turn off repetitive commands
-setw -g mode-mouse off # Hardcore!!
+set -g mouse off # Hardcore!!
 setw -g mode-keys vi
 
 # Keybindings
@@ -30,7 +30,7 @@ bind-key -t vi-copy 'v' begin-selection
 bind-key -t vi-copy 'y' copy-selection
 
 set -g base-index 1 # Starts the tmux window index at 1 instead of 0.
-setw -g pane-base-index 1 # Starts the tmux pane index at 1 instead of 0.
+set-window-option -g pane-base-index 1 # Starts the tmux pane index at 1 instead of 0.
 set -sg escape-time 1 # Reduces tmux command delay
 setw -g monitor-activity on # Window activity monitoring enabled
 set -g visual-activity on
