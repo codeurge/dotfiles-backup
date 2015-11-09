@@ -1,26 +1,29 @@
 def_key "j"
- scroll_down
+  scroll_down
 
 def_key "k"
- scroll_up
+  scroll_up
 
-def_key "n"
-  next
-
-def_key "p"
-  previous
-
-def_key "P"
-  pause
-
-def_key "s"
-  toggle_random
+def_key "l"
+  next_column
 
 def_key "h"
   previous_column
 
-def_key "l"
-  next_column
+def_key "g"
+  move_home
+
+def_key "G"
+  move_end
+
+def_key "n"
+  next_found_item
+
+def_key "N"
+  previous_found_item
+
+def_key "d"
+  delete_playlist_items
 
 def_key "L"
   show_lyrics
