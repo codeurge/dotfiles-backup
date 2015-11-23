@@ -81,6 +81,8 @@
   Plugin 'fatih/vim-go'
   Plugin 'isRuslan/vim-es6'
   Plugin 'mxw/vim-jsx'
+  Plugin 'wavded/vim-stylus'
+  Plugin 'dbakker/vim-lint'
   call vundle#end()
   color wombat256mod
 
@@ -235,3 +237,4 @@ let g:vroom_use_vimux = 1
 
 autocmd BufNewFile,BufRead *.slim set ft=slim
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+nnoremap <silent> <C-e> :Errors<CR>
