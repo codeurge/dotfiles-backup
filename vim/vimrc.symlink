@@ -4,8 +4,8 @@
   set nocompatible    " Just say no to plain vi
   set shell=/bin/sh    " Zsh.
   set encoding=utf-8    " UTF-8 encoding
-  filetype on
-  set background=light " Dark background
+  filetype off
+  set background=dark " Dark background
   set t_Co=16			" 256 Terminal Colors
   set clipboard=unnamed " Use the OS X clipboard
   set ruler				" show the cursor position all the time
@@ -25,9 +25,16 @@
   set autoread			" don't prompt if buffers have been saved prior to external modification.
   set splitbelow    " open splits below current pane
   set splitright    " open vertical splits to right of current pane
+  set autoread
+  set confirm
+  set autowriteall
 
   let g:airline_powerline_fonts = 1
-  let g:airline_theme = 'lucius'
+  let g:airline_theme = 'wombat'
+  let g:airline#extensions#tmuxline#enabled = 0
+  let g:tmuxline_theme = 'zenburn'
+  let g:airline#extensions#tabline#enabled = 1
+
 
   " Different cursors for different modes.
   set guicursor=n-c:block-Cursor-blinkon0
@@ -47,33 +54,40 @@
   Plugin 'ntpeters/vim-better-whitespace'
   Plugin 'Lokaltog/vim-easymotion'
   Plugin 'airblade/vim-gitgutter'
-  Plugin 'digitaltoad/vim-jade'
-  Plugin 'slim-template/vim-slim'
-  Plugin 'kchmck/vim-coffee-script'
-  Plugin 'fatih/vim-go'
   Plugin 'kien/ctrlp.vim'
   Plugin 'bling/vim-airline'
   Plugin 'edkolev/tmuxline.vim'
   Plugin 'rking/ag.vim'
+  Plugin 'scrooloose/syntastic'
+  Plugin 'Valloric/YouCompleteMe'
   Plugin 'tpope/vim-rails'
   Plugin 'skalnik/vim-vroom'
   Plugin 'benmills/vimux'
   Plugin 'xolox/vim-misc'
   Plugin 'xolox/vim-notes'
   Plugin 'tpope/vim-fugitive'
+  Plugin 'tpope/vim-surround'
+  Plugin 'terryma/vim-multiple-cursors'
+  Plugin 'djoshea/vim-autoread'
+  Plugin 'kshenoy/vim-signature'
+  Plugin 'jlanzarotta/bufexplorer'
   Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
-  Plugin 'isRuslan/vim-es6'
-  Plugin 'mxw/vim-jsx'
   Plugin 'tpope/vim-haml'
   Plugin 'cakebaker/scss-syntax.vim'
   Plugin 'tpope/vim-cucumber'
+  Plugin 'kchmck/vim-coffee-script'
+  Plugin 'digitaltoad/vim-jade'
+  Plugin 'slim-template/vim-slim'
+  Plugin 'fatih/vim-go'
+  Plugin 'isRuslan/vim-es6'
+  Plugin 'mxw/vim-jsx'
   call vundle#end()
-  filetype plugin indent on " load file type plugins and indentation
-  color Dracula
+  color wombat256mod
 
 "	Text Formatting
 " ===========================================================
   syntax enable			" Enable syntax highlighting
+  filetype plugin indent on " load file type plugins and indentation
   set autoindent			" automatic indent new lines
   set smartindent			" be smart about it
   set nowrap				" do not wrap lines
@@ -123,6 +137,9 @@
   nnoremap tn  :tabnew<CR>
   nnoremap tm  :tabm<Space>
   nnoremap td  :tabclose<CR>
+  nnoremap bn  :b<CR>
+  nnoremap bp  :bufprev<CR>
+  
 
   nmap <leader>h :nohlsearch<cr>
 
@@ -143,8 +160,8 @@
   let NERDTreeQuitOnOpen=1
   map <Leader>n :NERDTreeTabsToggle<CR>
   map <Leader>sw :StripWhitespace<CR>
-  map <Leader>w :w<CR>
-  map <Leader>wq :wq<CR>
+  map <Leader>w :wa<CR>
+  map <Leader>wq :wqa<CR>
 
 " EasyMotion
 " ===========================================================
@@ -199,6 +216,7 @@ if executable('ag')
 
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
+  nmap <leader>bb :CtrlPBuffer<cr>
 endif
   nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
   nnoremap \ :Ag<SPACE>
@@ -209,10 +227,11 @@ let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=59
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=103
-hi CursorLine   cterm=bold ctermbg=darkgray
+hi CursorLine   ctermbg=darkgray
 nnoremap <Leader>c :set cursorline!<CR>
 set cursorline!
 
 let g:vroom_use_vimux = 1
 
 autocmd BufNewFile,BufRead *.slim set ft=slim
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
