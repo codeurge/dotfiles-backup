@@ -1,14 +1,18 @@
 mpd_host = localhost
 mpd_port = 6600
-mpd_music_dir = /Users/derek/tunes
+mpd_music_dir = /Volumes/Storage/Music
 lyrics_directory = "~/.lyrics"
 
 user_interface = alternative
 playlist_disable_highlight_delay = "0"
+message_delay_time = "2"
 playlist_display_mode = columns
 browser_display_mode = columns
 statusbar_visibility = no
-progressbar_look = "─╼ "
+#progressbar_look = "◾◾◽"
+#progressbar_look = "─⊙╶"
+progressbar_look = "─░─"
+progressbar_color = "yellow"
 ignore_leading_the = "yes"
 display_bitrate = yes
 follow_now_playing_lyrics = yes
@@ -22,7 +26,6 @@ color2 = "green"
 
 colors_enabled = yes
 main_window_highlight_color = "white"
-progressbar_color = "blue"
 statusbar_color = "white"
 active_column_color = "green"
 window_border_color = "cyan"
@@ -40,9 +43,9 @@ visualizer_in_stereo = "no"
 visualizer_fifo_path = "/tmp/mpd.fifo"
 visualizer_output_name = "FIFO"
 visualizer_sync_interval = "30"
-visualizer_look = "||"
-visualizer_color = "blue"
-visualizer_type = "spectrum"
+visualizer_look = "◆▋"
+visualizer_color = "yellow"
+visualizer_type = "wave"
 
 playlist_separate_albums = "yes"
 playlist_show_remaining_time = "yes"
@@ -50,3 +53,6 @@ cyclic_scrolling = "yes"
 media_library_primary_tag = album_artist
 fetch_lyrics_for_current_song_in_background = "yes"
 store_lyrics_in_song_dir = "no"
+
+locked_screen_width_part = 70
+screen_switcher_mode = playlist, media_library, playlist_editor
