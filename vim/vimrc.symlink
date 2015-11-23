@@ -141,7 +141,7 @@
   nnoremap td  :tabclose<CR>
   nnoremap bn  :b<CR>
   nnoremap bp  :bufprev<CR>
-  
+
 
   nmap <leader>h :nohlsearch<cr>
 
