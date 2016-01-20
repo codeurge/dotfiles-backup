@@ -5,7 +5,7 @@
         protocol = https
 [user]
         name = Derek Keith
-        email = derek@mojotech.com
+	email = derek@codeurge.com
 [credential]
         helper = osxkeychain
 [alias]

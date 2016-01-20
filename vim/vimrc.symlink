@@ -1,7 +1,8 @@
 " Initial Settings
 " ===========================================================
   set noswapfile      " Live dangerous, no swapfiles
-  set nocompatible    " Just say no to plain vi
+  " set nocompatible    " Just say no to plain vi
+  " update: not needed if using a personal vimrc
   set shell=/bin/sh    " Zsh.
   set encoding=utf-8    " UTF-8 encoding
   filetype off
@@ -28,6 +29,8 @@
   set autoread
   set confirm
   set autowriteall
+  set synmaxcol=200
+  set ttyfast
 
 
 
@@ -53,8 +56,6 @@
   Plugin 'bling/vim-airline'
   Plugin 'edkolev/tmuxline.vim'
   Plugin 'rking/ag.vim'
-  Plugin 'scrooloose/syntastic'
-  Plugin 'Valloric/YouCompleteMe'
   Plugin 'tpope/vim-rails'
   Plugin 'skalnik/vim-vroom'
   Plugin 'benmills/vimux'
@@ -78,8 +79,13 @@
   Plugin 'mxw/vim-jsx'
   Plugin 'wavded/vim-stylus'
   Plugin 'dbakker/vim-lint'
+  Plugin 'Valloric/YouCompleteMe'
+  Plugin 'ervandew/supertab'
+  Plugin 'SirVer/ultisnips'
+  Plugin 'honza/vim-snippets'
+  Plugin 'Raimondi/delimitMate'
   call vundle#end()
-  color wombat256mod
+  color dracula
 
 "	Text Formatting
 " ===========================================================
@@ -221,9 +227,9 @@ endif
 " Indent Guides
 " ===========================================================
 let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=59
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=103
+let g:indent_guides_auto_colors = 1
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=59
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=103
 
 
 " CursorLine
@@ -252,7 +258,19 @@ nnoremap <silent> <C-e> :Errors<CR>
 " Airline
 " ===========================================================
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'wombat'
-let g:airline#extensions#tmuxline#enabled = 0
-let g:tmuxline_theme = 'zenburn'
+let g:airline_theme = 'sol'
+"let g:airline#extensions#tmuxline#enabled = 1
+"let g:tmuxline_theme = 'zenburn'
+"let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
+
+" YouCompleteMe and UltiSnips compatibility, with the helper of supertab
+let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
+
+let g:SuperTabDefaultCompletionType    = '<C-n>'
+let g:SuperTabCrMapping                = 0
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
