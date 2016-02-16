@@ -42,7 +42,7 @@
 " vim-plug
 " ===========================================================
   call plug#begin('~/.vim/plugged')
-  Plug 'gmarik/Vundle.vim'
+  Plug 'mhinz/vim-startify'
   Plug 'scrooloose/nerdtree'
   Plug 'jistr/vim-nerdtree-tabs'
   Plug 'christoomey/vim-tmux-navigator'
