@@ -39,53 +39,55 @@
   set guicursor+=v:block-vCursor-blinkon0
   set guicursor+=i-ci:ver20-iCursor
 
-" Vundle Plugins
+" vim-plug
 " ===========================================================
-  set rtp+=~/.vim/bundle/Vundle.vim
-
-  call vundle#begin()
-  Plugin 'gmarik/Vundle.vim'
-  Plugin 'scrooloose/nerdtree'
-  Plugin 'jistr/vim-nerdtree-tabs'
-  Plugin 'christoomey/vim-tmux-navigator'
-  Plugin 'nathanaelkane/vim-indent-guides'
-  Plugin 'ntpeters/vim-better-whitespace'
-  Plugin 'Lokaltog/vim-easymotion'
-  Plugin 'airblade/vim-gitgutter'
-  Plugin 'kien/ctrlp.vim'
-  Plugin 'bling/vim-airline'
-  Plugin 'edkolev/tmuxline.vim'
-  Plugin 'rking/ag.vim'
-  Plugin 'tpope/vim-rails'
-  Plugin 'skalnik/vim-vroom'
-  Plugin 'benmills/vimux'
-  Plugin 'xolox/vim-misc'
-  Plugin 'xolox/vim-notes'
-  Plugin 'tpope/vim-fugitive'
-  Plugin 'tpope/vim-surround'
-  Plugin 'terryma/vim-multiple-cursors'
-  Plugin 'djoshea/vim-autoread'
-  Plugin 'kshenoy/vim-signature'
-  Plugin 'jlanzarotta/bufexplorer'
-  Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
-  Plugin 'tpope/vim-haml'
-  Plugin 'cakebaker/scss-syntax.vim'
-  Plugin 'tpope/vim-cucumber'
-  Plugin 'kchmck/vim-coffee-script'
-  Plugin 'digitaltoad/vim-jade'
-  Plugin 'slim-template/vim-slim'
-  Plugin 'fatih/vim-go'
-  Plugin 'isRuslan/vim-es6'
-  Plugin 'mxw/vim-jsx'
-  Plugin 'wavded/vim-stylus'
-  Plugin 'dbakker/vim-lint'
-  Plugin 'Valloric/YouCompleteMe'
-  Plugin 'ervandew/supertab'
-  Plugin 'SirVer/ultisnips'
-  Plugin 'honza/vim-snippets'
-  Plugin 'Raimondi/delimitMate'
-  call vundle#end()
-  color dracula
+  call plug#begin('~/.vim/plugged')
+  Plug 'gmarik/Vundle.vim'
+  Plug 'scrooloose/nerdtree'
+  Plug 'jistr/vim-nerdtree-tabs'
+  Plug 'christoomey/vim-tmux-navigator'
+  Plug 'nathanaelkane/vim-indent-guides'
+  Plug 'ntpeters/vim-better-whitespace'
+  Plug 'Lokaltog/vim-easymotion'
+  Plug 'airblade/vim-gitgutter'
+  Plug 'kien/ctrlp.vim'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+  Plug 'edkolev/tmuxline.vim'
+  Plug 'rking/ag.vim'
+  Plug 'tpope/vim-rails'
+  Plug 'skalnik/vim-vroom'
+  Plug 'benmills/vimux'
+  Plug 'xolox/vim-misc'
+  Plug 'xolox/vim-notes'
+  Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-surround'
+  Plug 'terryma/vim-multiple-cursors'
+  Plug 'djoshea/vim-autoread'
+  Plug 'kshenoy/vim-signature'
+  Plug 'jlanzarotta/bufexplorer'
+  Plug 'zenorocha/dracula-theme', {'rtp': 'vim/'}
+  Plug 'tpope/vim-haml'
+  Plug 'cakebaker/scss-syntax.vim'
+  Plug 'tpope/vim-cucumber'
+  Plug 'kchmck/vim-coffee-script'
+  Plug 'digitaltoad/vim-jade'
+  Plug 'slim-template/vim-slim'
+  Plug 'fatih/vim-go'
+  Plug 'isRuslan/vim-es6'
+  Plug 'mxw/vim-jsx'
+  Plug 'wavded/vim-stylus'
+  Plug 'dbakker/vim-lint'
+  Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+  Plug 'ervandew/supertab'
+  Plug 'SirVer/ultisnips'
+  Plug 'honza/vim-snippets'
+  Plug 'Raimondi/delimitMate'
+  Plug 'flazz/vim-colorschemes'
+  Plug 'chriskempson/base16-vim'
+  Plug 'skammer/vim-css-color'
+  call plug#end()
+  colorscheme base16-tomorrow
 
 "	Text Formatting
 " ===========================================================
@@ -227,14 +229,15 @@ endif
 " Indent Guides
 " ===========================================================
 let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_auto_colors = 1
-"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=59
-"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=103
-
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=7
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=8
 
 " CursorLine
 " ===========================================================
-hi CursorLine   ctermbg=darkgray
+" hi CursorLine   ctermbg=393939
 nnoremap <Leader>c :set cursorline!<CR>
 set cursorline!
 
@@ -274,3 +277,4 @@ let g:SuperTabCrMapping                = 0
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+au BufNewFile,BufRead *.ejs set filetype=html
