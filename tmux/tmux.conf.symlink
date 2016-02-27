@@ -7,6 +7,7 @@ set-option -g history-limit 90000
 set-option -g repeat-time 0 # turn off repetitive commands
 set -g mouse off # Hardcore!!
 setw -g mode-keys vi
+set-option -g status-position top
 
 # Keybindings
 set-option -g prefix C-a # Change tmux prefix to Ctrl-a
